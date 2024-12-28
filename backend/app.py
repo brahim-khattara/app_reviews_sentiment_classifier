@@ -38,9 +38,6 @@ def preprocess_data(file_path):
     # Preprocess the 'review' column
     df["review"] = df["review"].apply(preprocess_text_arabic)
 
-    # Check class balance
-    print("Class distribution:\n", df["sentiment"].value_counts())
-
     # TF-IDF vectorizer
     tfidf = TfidfVectorizer(max_features=5000, stop_words=None, ngram_range=(1, 2))
     X = tfidf.fit_transform(df["review"]).toarray()
@@ -69,8 +66,6 @@ def train_knn(X_train, y_train, k=3):
 # Initialize variables for the model (load the data and train the model)
 file_path = "./data/app_reviews.xlsx"  # Path to the dataset file
 
-# Preprocess data and train model
-print(f"Using dataset at: {file_path}")
 tfidf, X, y, df = preprocess_data(file_path)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 scaler, pca, X_train_pca, X_test_pca = apply_pca(X_train, X_test)
@@ -89,7 +84,6 @@ def classify_phrase():
 
         # Preprocess the phrase
         phrase = preprocess_text_arabic(phrase)
-        print(f"Processed phrase: {phrase}")
 
         # Transform the input phrase using the TF-IDF vectorizer
         X_phrase = tfidf.transform([phrase]).toarray()
@@ -97,9 +91,6 @@ def classify_phrase():
         # Standardize and reduce its dimensionality
         X_phrase_scaled = scaler.transform(X_phrase)  # Standardize
         X_phrase_pca = pca.transform(X_phrase_scaled)  # Apply PCA
-
-        # Log the processed input data before classification
-        print(f"Processed feature shape: {X_phrase_pca.shape}")
 
         # Classify using the trained k-NN model
         prediction = knn.predict(X_phrase_pca)
