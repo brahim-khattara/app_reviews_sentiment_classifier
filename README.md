@@ -16,14 +16,19 @@ The project integrates a **Flask** backend for sentiment analysis and a **Flutte
 
 ## Dataset
 
-- **Source**: `app_reviews.xlsx`
+- **Source**:
+  - The primary dataset is sourced from [Kaggle: Arabic Company Reviews](https://www.kaggle.com/datasets/fahdseddik/arabic-company-reviews). This dataset contains Arabic reviews for various companies and is 
+    used with some cleaning and preprocessing to suit the sentiment analysis task.
+  - In addition to the Kaggle dataset, some reviews were collected through web scraping from the [Talabat app page on Google Play](https://play.google.com/store/apps/details?id=com.talabat&hl=ar). These reviews 
+    are specifically focused on the Egyptian version of the app.
+
   - The dataset contains two columns:
     - **review**: Text of the app review in Arabic.
     - **sentiment**: Sentiment labels (Positive or Negative).
   
 - **Preprocessing**:
   - Removal of Arabic diacritics and non-standard characters.
-  - Normalization of characters (e.g., converting ى to ي).
+  - Normalization of characters (e.g., converting ا to أ).
   - Negation handling (e.g., "لا جيد" becomes "NOT_جيد").
   - Tokenization for vectorization methods.
 
