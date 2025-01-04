@@ -185,7 +185,7 @@ def classify_phrase():
         return jsonify({"error": str(e)}), 400
 
 if __name__ == '__main__':
-    file_path = "./backend/data/app_reviews.xlsx"
+    file_path = "./data/app_reviews.xlsx"
     initialize_models(file_path)
     save_preprocessed_data_to_excel(file_path)
     app.run(debug=True, host='0.0.0.0', port=5000)
