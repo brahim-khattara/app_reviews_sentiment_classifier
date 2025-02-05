@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **App Reviews Sentiment Classifier** is a machine learning-based web application designed to analyze Arabic-language app reviews and classify them as either positive or negative. It provides an interactive interface to input text and receive sentiment predictions alongside similar review analysis using multiple vectorization techniques. Additionally, the project applies **Principal Component Analysis (PCA)** for dimensionality reduction and **K-Nearest Neighbors (KNN)** for classification to enhance performance and interpretability.
+The **App Reviews Sentiment Classifier** is a machine learning-based mobile application designed to analyze Arabic-language app reviews and classify them as either positive or negative. It provides an interactive interface to input text and receive sentiment predictions alongside similar review analysis using multiple vectorization techniques. Additionally, the project applies **Principal Component Analysis (PCA)** for dimensionality reduction and **K-Nearest Neighbors (KNN)** for classification to enhance performance and interpretability.
 
 The project integrates a **Flask** backend for sentiment analysis and a **Flutter**-based mobile-friendly front end. It supports real-time classification with three types of vectorization: **TF-IDF**, **Word2Vec**, and **FastText**.
 
